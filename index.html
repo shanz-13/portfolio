@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <header>
+                <ul class="nav-links">
+                    <li><a href="">Home</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="">Resume</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </header>
+        </div>
+        <div class="container">
+            <div class="pic"><img src="assets/shanz.png" alt="profile pic"></div>
+            <div class="hero-text">
+                <h4>Hi I'm a <span id="typed"></span></h4>
+                <h1>Shanmukha Kumar</h1>
+                <p>
+                    Hi I'm a passionate software developer with interests in both development and engineering fields. I
+                    don't want my knowledge is only limited to a particular field so I explored machine learning, web
+                    dev, software developement and quantum computing. I love that technology can bring people together
+                    and has the potential to shape the future. If you're interested in working together, I'd love to
+                    hear from you.
+                </p>
+                <br>
+                <h2>Contact Me</h2>
+                <p>You can contact me using any of these socials</p>
+                <div class="social" id="contact">
+                    <a href="https://www.linkedin.com/in/shanmukha-kumar-489882326/" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://x.com/shanmukha_13" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.hackerrank.com/profile/etteshankara" target="_blank"><i
+                            class="fa-brands fa-hackerrank"></i></a>
+                    <a href="get-in-touch.html"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="projects" class="mid">
+            <div>
+                <h2>Projects</h2>
+            </div>
+
+            <div class="projects">
+                <div class="card">
+                    <h3>Medical Diagnosis system</h3>
+                    <img src="assets/Cancer detection.png" alt="Medical diagnosis system pic">
+                    <p>
+                        Medical diagnosis system is used to classify the cancer images using KNN algorithm.
+                        <br><br>
+                        Tech: MATLAB, Machine Learning toolkit, Image processing toolkit.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>JWT Authorization and Authentication</h3>
+                    <p>
+                        A microservice for centralized authentication and authorization, ensuring secure access to
+                        protected
+                        resources. Implemented role-based access control to restrict unauthorized access. Provided a
+                        scalable and reusable solution for multiple applications.
+                        <br><br>
+                        Tech: FastAPI, JWT, Bcrypt, Pydantic.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>The NewsMania</h3>
+                    <img src="assets/The news mania.png" alt="The NewsMania homepage">
+                    <p>
+                        The NewsMania is a news aggregator app. And it also has a feature to search for research papers
+                        which leverages Custom engine by google.
+                        <br><br>
+                        Tech: HTML, CSS, JavaScript, News API, Google programmable search engine.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const typedElement = document.getElementById('typed');
+        const strings = ["Web developer", "Software developer", "Open Source Contributor", "Quantum enthusiast"];
+        let stringIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentString = strings[stringIndex];
+            if (isDeleting) {
+                typedElement.textContent = currentString.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    stringIndex = (stringIndex + 1) % strings.length;
+                }
+            } else {
+                typedElement.textContent = currentString.substring(0, charIndex++);
+                if (charIndex > currentString.length) {
+                    isDeleting = true;
+                }
+            }
+            setTimeout(type, isDeleting ? 70 : 100);
+        }
+
+        type();
+    </script>
+
+</body>
+
+</html>
